@@ -1,0 +1,627 @@
+#infoButton1 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton2 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton3 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton4 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton5 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton6 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton7 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton8 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton9 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton10 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton11 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+#infoButton12 {
+    position	: absolute;
+    top		: 10px;
+    left		: 10px;
+    z-index		: 2;
+
+    font-style	: italic;
+    font-size	: 180%;
+    color		: white;
+
+    background	: rgba(0,0,0,0.5);
+
+    padding		: 15px;
+    padding-top	: 5px;
+    padding-bottom	: 5px;
+
+
+    border-radius	: 1000px;
+    border-color	: #BDBDBD;
+    border-style	: solid;
+    border-width	: 2px;
+}
+
+
+#infoButton1:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+#infoButton2:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+#infoButton3:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+#infoButton4:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+#infoButton5:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+#infoButton6:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+#infoButton7:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+#infoButton8:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+#infoButton9:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+#infoButton10:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+#infoButton11:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+#infoButton12:hover {
+    cursor: pointer;
+    /*這可以讓cursor移過去時變成手指*/
+}
+
+
+#question1{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question2{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question3{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question4{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question5{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question6{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question7{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question8{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question9{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question10{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question11{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+#question12{
+    position	: absolute;
+    top		: 80px;
+    left		: 10px;
+    z-index		: 2;
+
+}
+
+
+#accordion1 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion2 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion3 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion4 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion5 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion6 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion7 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion8 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion9 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion10 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion11 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+#accordion12 {
+    font-size: samll;
+    background	: rgba(0,0,0,0.3);
+}
+
+
+#question1 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question1 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question2 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question2 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question3 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question3 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question4 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question4 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question5 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question5 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question6 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question6 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question7 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question7 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question8 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question8 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question9 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question9 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question10 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question10 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question11 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question11 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+#question12 .title{
+    background	: rgba(0,0,0,0.5);
+    font-style	: italic;
+    color		: white;
+}
+
+#question12 .module{
+    background	: rgba(0,0,0,0.5); /*使背景透明化*/
+    color		: #BDBDBD;
+}
+
+table, th, td {
+    border: 1px solid ;
+}

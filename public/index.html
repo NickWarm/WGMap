@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<script src='vendor/three.js/build/three.js'></script>
+<script src='vendor/three.js/examples/js/renderers/CSS3DRenderer.js'></script>
+<script src='vendor/three.js/examples/js/loaders/ColladaLoader.js'></script>
+<script src='http://code.jquery.com/jquery.min.js'></script>
+<script src='http://code.jquery.com/ui/1.9.2/jquery-ui.js'></script>
+<script src='http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js'></script>
+<!--Use collider-->
+<script src="./bower_components/threex.colliders/threejs_for_collider.js"></script>
+
+<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'>
+
+<div id='infoButton1' style='top: 11px;'   >1</div>
+<div id='infoButton2' style='left: 62px;'   >2</div>
+<div id='infoButton3' style='left: 114px;'  >3</div>
+<div id='infoButton4' style='left: 166px;'  >4</div>
+<div id='infoButton5' style='left: 218px;'  >5</div>
+<div id='infoButton6' style='left: 270px;top: 11px;'  >6</div>
+<div id='infoButton7' style='left: 322px;'  >7</div>
+<div id='infoButton8' style='left: 374px;'  >8</div>
+<div id='infoButton9' style='left: 426px;'  >9</div>
+<div id='infoButton10' style='left: 478px;'>10</div>
+<div id='infoButton11' style='left: 544px;'>11</div>
+<div id='infoButton12' style='left: 610px;'>12</div>
+
+<!--第一題-->
+<div id='question1' style='width:90%;height:70%; display: none;'>
+    <div id='accordion1' >
+        <h3 class="title" >CH3 Question.1 </h3>
+        <article class="module">
+            Given the following PDF:
+            $${ f }_{ X }(x)=\begin{cases} A{ e }^{ -2x },\quad x\ge 0 \\ 0,\quad otherwise \end{cases}$$
+            where A is a constant.
+            <br/><br/>
+            (a) Find the value of A for ${ f }_{ X }(x)$ to be a valid PDF.
+            <br/>
+            (b) Find its CDF ${ F }_{ X }(x)$.
+            <br/>
+            (c) If ${ F }_{ X }(x)$ is the probability that a phone call lasts less than or equal to x minutes, find ${ F }_{ X }(5)-{ F }_{ X }(1)$ and state its meaning in words.
+        </article>
+
+        <h3 class="title" >(a) 思考，然後自己動手嘗試</h3>
+        <section class="module">
+            在(a)小題，他要找出A且題目所給的，是一個有效的PDF，於是我們回頭去想PDF有哪些性質：
+            <br/><br/>
+            CDF： ${ F }_{ X }(x)$、PDF：${ f }_{ X }(x)$
+            <br/><br/>
+            ${ F }_{ X }(x)\xrightarrow [ \frac { d }{ dx }  ]{ \xleftarrow { \int {  }  }  } { f }_{ X }(x)$
+            <br/><br/>
+            ${ { F }_{ X }(x)=\int _{ -\infty  }^{ x }{ { f }_{ X }(u) } du }$
+            <br/><br/>
+            ${ P(a\le X\le b)=\int _{ a }^{ b }{ { f }_{ X }(x) } dx }$
+            <br/><br/>
+            $\int _{ -\infty  }^{ \infty  }{ { f }_{ X }(x) } dx=1$
+            <br/><br/>
+            ${ f }_{ X }(x)\ge 0$
+            <br/><br/>
+            <br/><br/>
+            現在讓我們來看來看 $\int _{ -\infty  }^{ \infty  }{ { f }_{ X }(x) } dx=1$ 這條公式，如這條公式所示，把PDF從負無窮大到正無窮大積分，得到1。
+            <br/><br/>
+            PDF是連續的random variables才有的，過去你學過random variable的意義X=1, X=2, X=...，X等於不同的值代表的是不同的events(事件)，(例如：你用X=1代表你準時到，X=2代表你遲到、X=3代表你缺席)。
+            <br/><br/>
+            random variable是一種簡寫的方式，讓你對事件的描述可以簡化。
+            <br/><br/>
+            積分是加總的概念，過去你曾在機率第三公理學過：events每個事件互相互斥，也在機率第二公理學過：樣本空間P(S)=1。
+            <br/><br/>
+            把樣本空間下所有的事件都加總起來，所得之和=1，就是$\int _{ -\infty  }^{ \infty  }{ { f }_{ X }(x) } dx=1$ 這條公式。
+            <br/><br/>
+            題目說的vaild probability，就是在說這條公式，也就是我們的機率第二與第三公理，所以我們透過這條公式就能得到A
+            <br/><br/>
+            現在你可以來嘗試看看了 ^_^
+
+            <br/><br/>
+            <button id="showAns_1a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_1a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_1a" style="display: none">
+                $\int _{ -\infty  }^{ \infty  }{ { f }_{ X }(x)dx=1 } $
+                <br/>
+                $\Rightarrow \int _{ 0 }^{ \infty  }{ A{ e }^{ -2x }dx=1 } $
+                <br/>
+                $\Rightarrow \frac { A }{ -2 } { \left[ { e }^{ -2x } \right]  }_{ 0 }^{ \infty  }=\left( \frac { -A }{ 2 }  \right) \left( 0-1 \right) =1$
+                <br/>
+                $\Rightarrow A=2$
+            </div>
+
+        </section>
+
+        <h3 class="title">(b) 思考，然後自己動手嘗試</h3>
+        <section class="module">
+            題目已經給我們PDF，所以我們可以透過${ F }_{ X }(x)\xrightarrow [ \frac { d }{ dx }  ]{ \xleftarrow { \int {  }  }  } { f }_{ X }(x)$來取得CDF
+            <br/><br/>
+            在此我們要注意的是積分的範圍，在上面我們提到CDF的公式：${ { F }_{ X }(x)=\int _{ -\infty  }^{ x }{ { f }_{ X }(u) } du }$
+            <br/><br/>
+            依據題目所給的，${ f }_{ X }(x)$只有在$x\ge 0$時有值，所以我們積分的範圍，應該從CDF公式的$\int _{ -\infty  }^{ x }{  } $，改成 $\int _{ 0 }^{ x }{  } $，說到這邊你應該有能力自己動手算了。
+            <br/><br/>
+            <button id="showAns_1b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_1b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_1b" style="display: none">
+                ${ F }_{ X }(x)=\int _{ -\infty  }^{ x }{ { f }_{ X }(t)dt } =\int _{ 0 }^{ x }{ 2{ e }^{ -2t }dt } $
+                <br/><br/>
+                $=-{ \left[ { e }^{ -2t } \right]  }_{ 0 }^{ x }=1-{ e }^{ -2x }$
+                <br/><br/>
+                $\therefore { \quad F }_{ X }(x)=\begin{cases} 1-{ e }^{ -2x },\quad x\ge 0 \\ 0,\quad otherwise \end{cases}$
+            </div>
+        </section>
+
+        <h3 class="title">(c) 思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            接下來我們先來讀一段前面的英文"If ${ F }_{ X }(x)$ is the probability that a phone call lasts less than or equal to x minutes."
+            <br/><br/>
+            這段話其實就是在說 ${ F }_{ X }(x)={ P }_{ X }(X\le x)$，CDF全名Cumilative distribution function，若你對discrite的CDF有印象的話，應該記得discrite CDF的圖畫起來是步階累加，最後會加總到1。
+            <br/><br/>
+            在離散的情況下，CDF他是累加events(即X=1, X=2, X=3,...)的機率(PMF)，所以CDF本身就是機率P，這很直觀，在連續的時候CDF就是去積分PDF所得的結果。
+            <br/><br/>
+            若給 ${ P }_{ X }(X\le x)$ 一個範圍，就是在這一個範圍的隨機變數發生的機率，${ F }_{ X }(x)={ P }_{ X }(a\le X\le b)$，也就是在這範圍內特定事件們發生的機率
+            <br/><br/>
+            在此的特定事件 ${ F }_{ X }(5)-{ F }_{ X }(1)$，是你打電話可能打大於1分鐘、1~2分鐘、1~5分鐘，剛好5分鐘但不會超過5分鐘
+            <br/><br/>
+            白話文來說，就是小於等於5分鐘但是大於1分鐘的通話時間。
+            <br/><br/>
+            已經說了那麼多了，你有能力寫出來了 ^_^
+
+            <br/><br/>
+            <button id="showAns_1c" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_1c" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_1c" style="display: none">
+                ${ F }_{ X }(5)-{ F }_{ X }(1)=\left( 1-{ e }^{ -10 } \right) -\left( 1-{ e }^{ -2 } \right) $
+                <br/><br/>
+                It is the probability that a phone call lasts less or equal to 5 minutes and greater than 1 minute.
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+<!--第二題-->
+<div id='question2' style='width:90%;height:70%; display: none;'>
+    <div id='accordion2' >
+        <h3 class="title" >CH3 Question.2 </h3>
+        <article class="module">
+            If X is an exponential random variable with the following PDF
+            $${ f }_{ X }(x)=\begin{cases} 2{ e }^{ -2x },\quad x\ge 0\quad  \\ 0,\quad otherwise \end{cases}$$
+            Find its CDF.
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試</h3>
+        <section class="module">
+            這題就簡單練習，算完後請自行看答案 ^_^
+
+            <br/><br/>
+            <button id="showAns_2" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_2" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_2" style="display: none">
+                ${ F }_{ X }(x)=\int _{ -\infty  }^{ x }{ { f }_{ X }(t)dt=\int _{ 0 }^{ x }{ 2{ e }^{ -2t }dt }  } $
+                <br/><br/>
+                $=-{ \left( { e }^{ -2t } \right)  }_{ 0 }^{ x }=1-{ e }^{ -2x },\quad x\ge 0$
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+<!--第三題-->
+<div id='question3' style='width:90%;height:70%; display: none;'>
+    <div id='accordion3' >
+        <h3 class="title" >CH3 Question.3 </h3>
+        <article class="module">
+            Given a PDF as following:
+            $${ f }_{ X }(x)=\begin{cases} 4{ e }^{ -\alpha m },\quad m\ge 0 \\ 0,\quad otherwise \end{cases}$$
+            where $\alpha $ is a constant.
+            <br/><br/>
+            (a) Find the value for $\alpha $.
+            <br/>
+            (b) Derive and draw the CDF of random variable <i>M</i>.
+            <br/>
+            (c) Find E[<i>M</i>] and Var[<i>M</i>].
+        </article>
+
+        <h3 class="title">(a) 思考，然後自己動手嘗試</h3>
+        <section class="module">
+            CH3 Question.1教過這小題的觀念，所以直接讓你動手自己寫 ^_^
+            <br/><br/>
+
+            <button id="showAns_3a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_3a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_3a" style="display: none">
+                $\int _{ -\infty  }^{ \infty  }{ { f }_{ M }(m)dm=1\Rightarrow \int _{ 0 }^{ \infty  }{ 4{ e }^{ -\alpha m } } dm=1 } $
+                <br/><br/>
+                $\Rightarrow \quad \frac { -4 }{ \alpha  } { \left[ { e }^{ -\alpha m } \right]  }_{ 0 }^{ \infty  }=1\quad \Rightarrow \quad \therefore \alpha =4$
+            </div>
+        </section>
+
+        <h3 class="title">(b) 思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            這很簡單，直接代公式算 ^_^。比較麻煩的是畫圖，在此直接先給你看(b)的答案
+            <br/><br/>
+            ${ F }_{ M }(m)=\begin{cases} 1-{ e }^{ -4m },\quad m\ge 0 \\ 0,\quad otherwise \end{cases}$
+            <br/><br/>
+            $1-{ e }^{ -4m }$ 的圖要怎麼畫呢，${ e }^{ -4m }$ 的圖呈現遞減的趨勢，當m=0時${ e }^{ -4m }=1$最大，當m很接近0時，${ e }^{ -4m }$很接近1且小於1，這樣子的值，按照我們前面的答案讓1去減它，會非常小趨近0
+            <br/><br/>
+            講那麼多你應該知道圖要怎麼畫了 ^_^
+            <br/><br/>
+            <button id="showAns_3b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_3b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_3b" style="display: none">
+                ${ F }_{ M }(m)=\int _{ -\infty  }^{ m }{ { f }_{ M }(t)dt }  $
+                <br/><br/>
+                $=\int _{ 0 }^{ m }{ { 4e }^{ -4t }dt } ={ \left[ { e }^{ -4t } \right]  }_{ 0 }^{ m }$
+                <br/><br/>
+                ${ \therefore F }_{ M }(m)=\begin{cases} 1-{ e }^{ -4m },\quad m\ge 0 \\ 0,\quad otherwise \end{cases}$
+                <br/><br/>
+                <img src="./images/pic1.png">
+            </div>
+        </section>
+
+        <h3 class="title">(c) 思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            這很簡單，請查課本p129的表，然後就秒殺了 ^_^
+
+            <br/><br/>
+            <button id="showAns_3c" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_3c" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_3c" style="display: none">
+                $E\left[ M \right] =\frac { 1 }{ 4 } ,\quad Var\left[ M \right] =\frac { 1 }{ { 4 }^{ 2 } } $
+                <br/><br/>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<!--第四題-->
+<div id='question4' style='width:90%;height:70%; display: none;'>
+    <div id='accordion4' >
+        <h3 class="title" >CH3 Question.4 </h3>
+        <article class="module">
+            The lifetime of a certain kind of radio tubes, measured in hours, is assumed to have the following PDF:
+            $${ f }_{ X }(x)=\begin{cases} 0,\quad x\le 100 \\ \frac { 100 }{ { x }^{ 2 } } ,\quad otherwise \end{cases}$$
+            What is the probability that exactly 2 out of 5 randomly selected radio tubes will have to be replaced within the first 150 hours of usage? (Assume lifetimes of different radio tubes are independent)
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            現在題目說，有一個特定的radio tubes真空管，它的lifetime生命週期，以小時來測量，已經知道lifetime的PDF，且已知lifetime之間互相獨立
+            <br/><br/>
+            現在我們來讀讀題目裡的這段英文"What is the probability that exactly 2 out of 5 randomly selected radio tubes will have to be replaced within the first 150 hours of usage?"
+            <br/><br/>
+            這段有點拗口，但你可以該嘗試閱讀它，如果你走工程，以後會看到更多這樣子的英文句子，現在我們來拆解這段句子。
+            <br/><br/>
+            "What is the probability that exactly 2 out of 5 randomly selected radio tubes" → 它要問機率，radio tubes隨機選5個，其中的2兩個
+            <br/><br/>
+            接著我們把"What is the probability that exactly 2 out of 5 randomly selected radio tubes"這句話簡化成 → (取radio tubes的事件)
+            <br/><br/>
+            所以原本的英文句子變成：(取radio tubes的事件) will have to be replaced within the first 150 hours of usage
+            <br/><br/>
+            這題開頭就說是在討論radio tube的lifetime，而lifetime是 measured in hours，不同長度的生命週期都是一個不同的事件，在這題中我們的random variable的對象是生命週期。
+            <br/><br/>
+            接著，我們回到完整的英文句子，把它們全部重讀一次：<br/>
+            What is the probability that exactly 2 out of 5 randomly selected radio tubes will have to be replaced within the first 150 hours of usage?
+            <br/><br/>
+            我們所要求的是機率
+            <br/><br/>
+            接著閱讀(取radio tubes的事件)，即"What is the probability that exactly 2 out of 5 randomly selected radio tubes"
+            <br/><br/>
+            我們隨機選五次中，有兩次是我要的
+            <br/><br/>
+            回到整個句子：(取radio tubes的事件) will have to be replaced within the first 150 hours of usage
+            <br/><br/>
+            我們隨機五次選時，剛好抽出兩次，這兩次要符合的條件是" within the first 150 hours of usage"
+            <br/><br/>
+            所以我們要求的是，隨機抽取五次，在這五次中有兩次的生命週期必須小於150小時的機率是多少
+            <br/><br/>
+            現在我們把小於150小時的機率看作P(成功)，大於150小時的機率看作P(失敗)=1-P(成功)
+            <br/><br/>
+            5次中要有2次成功，另外三次失敗
+            <br/><br/>
+            這樣子的機率可寫作 $\left( \begin{matrix} 5 \\ 2 \end{matrix} \right) { \left( P\left( sucess \right)  \right)  }^{ 2 }{ \left( P\left( fail \right)  \right)  }^{ 3 }$
+            <br/><br/>
+            P(失敗)=1-P(成功)，依題意所示，P(成功)是生命週期在150小時之內的機率，也就是生命週期小於等於150小時
+            <br/><br/>
+            題目已知PDF，PDF積分是CDF，CDF是特定範圍的機率，提示到這邊，你應該可以自己動筆試試看了
+
+            <br/><br/>
+            <button id="showAns_4" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_4" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_4" style="display: none">
+                $\left( \begin{matrix} 5 \\ 2 \end{matrix} \right) { \left( P\left( sucess \right)  \right)  }^{ 2 }{ \left( P\left( fail \right)  \right)  }^{ 3 }$
+                <br/><br/>
+                我們需要有P(成功)才有辦法帶入上面那條式子求出所要的機率，依題意所示，P(成功)是生命週期小於等於150小時的機率
+                <br/><br/>
+                題目已知PDF，PDF積分是CDF，CDF是特定範圍的機率，成功的範圍是生命週期要小於等於150
+                <br/><br/>
+                P(成功)= ${ P }_{ X }(X\le 150)=\int _{ -\infty  }^{ 150 }{ { f }_{ X }(x)dx=\int _{ 100 }^{ 150 }{ \frac { 100 }{ { x }^{ 2 } } dx } =\frac { 1 }{ 3 }  } $
+                <br/><br/>
+                所以題目所求的機率 $=\left( \begin{matrix} 5 \\ 2 \end{matrix} \right) { \left( \frac { 1 }{ 3 }  \right)  }^{ 2 }{ \left( \frac { 2 }{ 3 }  \right)  }^{ 3 }=\frac { 8 }{ 243 } $
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<!--第五題-->
+<div id='question5' style='width:90%;height:70%; display: none;'>
+    <div id='accordion5' >
+        <h3 class="title" >CH3 Question.5 </h3>
+        <article class="module">
+            Suppose random variable <i>Y</i> is uniformly distributed with mean 14 and variance 12. What is CDF of <i>Y</i> ?
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試</h3>
+        <section class="module">
+            已知random variable <i>Y</i>是uniform distritubed，且mean、variance都是已知，現在要求CDF，此時你可以去看看課本的p131，根據課本的式子，我們要求CDF則需要a、b
+            <br/><br/>
+            回頭去看題目已知mean E[<i>Y</i>]=14與variance Var[<i>Y</i>]=12，接著我們翻去課本p132，可以看到mean、variance推導出來與a、b的關係
+            <br/><br/>
+            有了這兩條關係式，你就能動手解聯立方程式，得到a、b，有了a、b再代回課本p131的式子就能得到CDF
+            <br/><br/>
+            說了那麼多，你應該有能力動手試一試了，另外可以試著推導一遍uniform distritubed的mean、variance，課本也給你推導過程了，這推導很簡單不難
+            <br/><br/>
+            <button id="showAns_5" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_5" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_5" style="display: none">
+                $E[Y]=\frac { 1 }{ 2 } (a+b)=14$
+                <br/><br/>
+                $Var[Y]=\frac { 1 }{ 12 } (b-a)=12$
+                <br/><br/>
+                解聯立得a=8、b=20
+                <br/><br/>
+                $\therefore { F }_{ Y }(y)=\begin{cases} 0,\quad y\le 8 \\ \frac { y-8 }{ 20-8 } ,\quad 8＜y＜20\quad  \\ 1,\quad y\ge 20 \end{cases}$
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<!--第六題-->
+<div id='question6' style='width:90%;height:70%; display: none;'>
+    <div id='accordion6' >
+        <h3 class="title" >CH3 Question.6 </h3>
+        <article class="module">
+            Let <i>X</i> be a normal random variable with mean 0. In addition, we are given that $P[\left| X \right| \le 10]=0.1192.$. What is the standard deviation of <i>X</i> ? You may need to use the following table:
+            <br/><br/>
+            <table  >
+                <tbody >
+                <tr >
+                    <th >z</th>
+                    <th>0.10</th>
+                    <th>0.15</th>
+                    <th>0.20</th>
+                    <th>0.25</th>
+                    <th>0.30</th>
+                </tr>
+                <tr>
+                    <th> $\Phi(z)$ </th>
+                    <th>0.5398</th>
+                    <th>0.5596</th>
+                    <th>0.5793</th>
+                    <th>0.5987</th>
+                    <th>0.6179</th>
+                </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            看到 $\Phi(z)$，我們先回來複習一下Gaussian distribution與Standard Normal Distribution
+            <br/><br/>
+            Gaussian distribution又稱之為Normal Distribution ，${ f }_{ X }(x)=\frac { 1 }{ \sqrt { 2\pi  } \sigma  } { e }^{ -\frac { { (x-\mu ) }^{ 2 } }{ 2{ \sigma  }^{ 2 } }  }$
+            <br/><br/>
+            通常Gaussian distribution我們會表示為 $X\sim Gaussian(\mu ,\sigma )$ 或 $X\sim N(\mu ,{ \sigma  }^{ 2 })$，$\mu$ 代表expection 期望值，$ { \sigma  }^{ 2 }$代表variance 變異數，$\sigma$代表standard deviation 標準差。
+            <br/><br/>
+            Standard Normal Distribution就是expection為0，variance為1，我們通常會把Standard Normal Distribution表示為 Z~N(0,1)。
+            <br/><br/>
+            由於Standard Normal Distribution的expection為0，variance為1，所以根據最上面Gaussian distribution的公式可得到
+            <br/><br/>
+            ${ f }_{ Z }(z)=\frac { 1 }{ \sqrt { 2\pi  }  } { e }^{ -\frac { { z }^{ 2 } }{ 2 }  }$
+            <br/><br/>
+            有了Standard Normal Distribution的PDF，我們對它積分，就能得到Standard Normal Distribution的CDF
+            <br/><br/>
+            Standard Normal Distribution的CDF $=\int _{ -\infty  }^{ z }{ \frac { 1 }{ \sqrt { 2\pi  }  } { e }^{ -\frac { { z }^{ 2 } }{ 2 }  }du } =\Phi (z)$，這個CDF的值積不出來，只能用查表的
+            <br/><br/>
+            現在我們來複習幾個Standard Normal Distribution的性質
+            <br/><br/>
+            對任何 $X\sim N(\mu ,{ \sigma  }^{ 2 })$ 而言， $\frac { x-\mu  }{ \sigma  } \sim N(0,1)$
+            <br/><br/>
+            對任何 $X\sim N(\mu ,{ \sigma  }^{ 2 })$ 而言， ${ F }_{ X }(x)=\Phi \left( \frac { x-\mu  }{ \sigma  }  \right) $
+            <br/><br/>
+            ${ \Phi  }(-z)={ 1-\Phi  }(z)$
+            <br/><br/>
+            在此我們特別推導一下上面三條中的第二條性質，待會會用到
+            <br/><br/>
+            ${ F }_{ X }(x)=P(X\le x)$
+            <br/>
+            $=P(X-\mu \le x-\mu )$
+            <br/>
+            $=P(\frac { X-\mu  }{ \sigma  } \le \frac { x-\mu  }{ \sigma  } )$
+            <br/>
+            $=\Phi (\frac { x-\mu  }{ \sigma  } )$
+            <br/><br/>
+            把$\frac { x-\mu  }{ \sigma  }$看作<i>z</i>，上面的式子就變為 $P(\frac { X-\mu  }{ \sigma  } \le z)=\Phi (z)$
+            <br/><br/>
+            現在我們可以回頭來看題目了，題目以知<i>X</i>是normal random variable 且mean=0，且已知$P[\left| X \right| \le 10]=0.1192.$，求<i>X</i>的standard deviation
+            <br/><br/>
+            我們先來看 $P[\left| X \right| \le 10]=0.1192$這條件，$P[\left| X \right| \le 10]=P[-10\le X\le 10]$，這是一個CDF
+            <br/><br/>
+            又由於題目所給的是normal ramdom variable，所以我們可用到上面三條性質中的第二條
+            <br/><br/>
+            說到這邊你可以嘗試動筆算算看了
+
+            <br/><br/>
+            <button id="showAns_6" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_6" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_6" style="display: none">
+                ${ F }_{ X }(x)=\Phi \left( \frac { x-\mu  }{ \sigma  }  \right) $
+                <br/><br/>
+                $=P(  X\le x)$
+                <br/><br/>
+                $\Rightarrow P[\left| X \right| \le 10]=P[10\le X\le 10]$
+                <br/><br/>
+                $=\Phi \left( \frac { 10 }{ \sigma  }  \right) -\Phi \left( \frac { -10 }{ \sigma  }  \right) $
+                <br/><br/>
+                透過剛剛說的最後一條性質
+                <br/><br/>
+                $=\Phi \left( \frac { 10 }{ \sigma  }  \right) -\left[ 1-\Phi \left( \frac { -10 }{ \sigma  }  \right)  \right] =2\Phi \left( \frac { 10 }{ \sigma  }  \right) -1=0.1192$ by 題目條件
+                <br/><br/>
+                $\therefore \Phi \left( \frac { 10 }{ \sigma  }  \right) =0.5596$，查表得到 $\therefore \Phi \left( 0.15 \right) =0.5596$
+                <br/><br/>
+                $\therefore 0.15=\frac { 10 }{ \sigma  } $
+                <br/><br/>
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<!--第七題-->
+<div id='question7' style='width:90%;height:70%; display: none;'>
+    <div id='accordion7' >
+        <h3 class="title" >CH4 Question.7 </h3>
+        <article class="module">
+            Random variables <i>X</i> and <i>Y</i> have joint PDF
+            $${ f }_{ X,Y }(x,y)=\begin{cases} c{ e }^{ -2x }{ e }^{ -3y },\quad 0\le x\le \infty ,0\le y\le \infty  \\ 0,\quad \quad \quad \quad \quad \quad otherwise \end{cases}$$
+            Find <br/>
+            (a) the constant c; <br/>
+            (b) P[A]=P[X＞2， Y＜1] <br/>
+            (c) P[X＞Y]
+        </article>
+
+        <h3 class="title">(a)思考，然後自己動手嘗試</h3>
+        <section class="module">
+            第一小題的概念，我們在第一題就曾介紹過，透過機率第二與第三公理，宇集(樣本空間)的機率為1
+            <br/><br/>
+            說到這邊你應該有能力自己算了
+
+            <br/><br/>
+            <button id="showAns_7a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_7a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_7a" style="display: none">
+                $\iint _{ -\infty  }^{ \infty  }{ { f }_{ X,Y }(x,y)dxdy=1 } $
+                <br/><br/>
+                $\Rightarrow \int _{ 0 }^{ \infty  }{ \left( \int _{ 0 }^{ \infty  }{ c{ e }^{ -2x }{ e }^{ -3y }dx }  \right) dy } $
+                <br/><br/>
+                先對x積分，所以y為constant，在此我們先來看對x積分的部分
+                <br/><br/>
+                對x積分：$\int _{ 0 }^{ \infty  }{ c{ e }^{ -2x }{ e }^{ -3y }dx } ={ e }^{ -3y }\int _{ 0 }^{ \infty  }{ c{ e }^{ -2x }dx= } { \left( c{ e }^{ -3y }\left( \frac { 1 }{ -2 }  \right) { e }^{ -2x } \right)  }_{ 0 }^{ \infty  }=c{ e }^{ -3y }\left( \frac { -1 }{ 2 }  \right) (0-1)$
+                <br/><br/>
+                原式 $=c\int _{ 0 }^{ \infty  }{ \frac { 1 }{ 2 } { e }^{ -3y }dy=c\cdot \frac { 1 }{ 2 } { \left( \frac { 1 }{ -3 } { e }^{ -3y } \right)  }_{ 0 }^{ \infty  }=\frac { 1 }{ 6 } c } $
+                <br/><br/>
+                by $\iint _{ -\infty  }^{ \infty  }{ { f }_{ X,Y }(x,y)dxdy=1 } $，$\therefore \frac { 1 }{ 6 } c=1$
+            </div>
+        </section>
+
+        <h3 class="title">(b)思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            過去我們學過，一個random variable時，X=1, X=2, X=3,...代表不同的events。X=1, X=2, X=3可看作X=x，小寫x是會變的變數
+            <br/><br/>
+            另外我們也學過，機率 $P(X\le x)={ F }_{ X }(x)$ CDF，求機率就是在求CDF
+            <br/><br/>
+            而CDF可以透過積分PDF去得到
+            <br/><br/>
+            過去一個random variable時， ${ F }_{ X }(x)\xrightarrow [ \frac { d }{ dx }  ]{ \xleftarrow { \int {  }  }  } { f }_{ X }(x)$，現在兩個random variables 自然變成 ${ F }_{ XY }(x,y)\xrightarrow [ \frac { { d }^{ 2 } }{ dxdy }  ]{ \xleftarrow { \iint {  }  }  } { f }_{ XY }(x,y)$
+            <br/><br/>
+            在這題要注意一下積分的範圍，P[A]=P[X＞2， Y＜1] ，X的部分：可理解作2＜x＜ $\infty $，Y的部分：直觀你可能會想作 $-\infty $＜y＜1，但是別忘了題目給我們Y的範圍是 $0\le y\le \infty $，所以說Y真正的範圍應該是 $0\le y$＜1
+            <br/><br/>
+            說到這邊你應該有能力動筆算了
+
+            <br/><br/>
+            <button id="showAns_7b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_7b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_7b" style="display: none">
+                $\iint { { f }_{ XY }(x,y)dxdy=\int _{ 0 }^{ 1 }{ \int _{ 2 }^{ \infty  }{ 6{ e }^{ -2x }{ e }^{ -3y } } dxdy } =(6\int _{ 2 }^{ \infty  }{ { e }^{ -2x } } dx)\cdot (\int _{ 0 }^{ 1 }{ { e }^{ -3y }dy } ) } $
+                <br/><br/>
+                $=6\cdot \left( \frac { -1 }{ 2 } \left( 0-{ e }^{ -4 } \right)  \right) \cdot \left( \frac { -1 }{ 3 } \left( { e }^{ -3 }-1 \right)  \right) =6\cdot \left( \frac { { e }^{ -4 } }{ 2 }  \right) \left( \frac { { -e }^{ -3 } }{ 3 } +\frac { 1 }{ 3 }  \right) ={ e }^{ -4 }\left( -{ e }^{ -3 }+1 \right) $
+
+                <br/><br/>
+
+            </div>
+        </section>
+
+        <h3 class="title">(c)思考，然後自己動手嘗試</h3>
+        <section class="module">
+            題目問P[X＞Y]=?
+            <br/><br/>
+            X＞Y可以想作Y＜X，回頭去看題目可知道這個joint PDF，Y的範圍是 $0\le y\le \infty $，如此一來，我們可以把Y的範圍縮小到：0＜y＜x，X的範圍依舊是 $0\le x\le \infty $
+            <br/><br/>
+            重積分時，裡面的我們先對y積分，y變數會消失剩下變數x，接著再對有實質範圍的x積分，就能得到所要的答案
+            <br/><br/>
+            到現在你應該有能力自己算算看了
+
+            <br/><br/>
+            <button id="showAns_7c" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_7c" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_7c" style="display: none">
+                P(X＞Y) = P(Y＜X)
+                <br/><br/>
+                $=\iint { { f }_{ XY }(x,y)dxdy } =\int _{ 0 }^{ \infty  }{ \left( \int _{ 0 }^{ x }{ 6{ e }^{ -2x }{ e }^{ -3y }dy }  \right) dx } $
+                <br/><br/>
+                $=\int _{ 0 }^{ \infty  }{ { e }^{ -2x }\left( { \left( \frac { 6 }{ -3 } { e }^{ -3y } \right)  }_{ 0 }^{ x } \right) dx } =\int _{ 0 }^{ \infty  }{ { e }^{ -2x }(-2{ e }^{ -3x }+2)dx } $
+                <br/><br/>
+                $=\int _{ 0 }^{ \infty  }{ (-2{ e }^{ -5x }+2{ e }^{ -2x })dx } ={ \left( \frac { 2 }{ 5 } { e }^{ -5x } \right)  }_{ 0 }^{ \infty  }+{ \left( (-1)\cdot { e }^{ -2x } \right)  }_{ 0 }^{ \infty  }$
+                <br/><br/>
+                $=\frac { 2 }{ 5 } (0-1)+(-1)\cdot (0-1)$
+
+
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<!--第八題-->
+<div id='question8' style='width:90%;height:70%; display: none;'>
+    <div id='accordion8' >
+        <h3 class="title" >CH4 Question.8 </h3>
+        <article class="module">
+            Let <i>X</i> and <i>Y</i> have joint PDF
+            <br/>
+            $${ f }_{ XY }(x,y)=\begin{cases} { e }^{ -(2x+3y) },\quad x\ge 0,\quad y\ge 0 \\ 0, \quad otherwise \end{cases}$$
+            <br/><br/>
+            Find the PDF of <i>V=2Y/X</i>
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試</h3>
+        <section class="module">
+            題目要求V的PDF，即f(V)=?
+            <br/><br/>
+            再過去我們學過可以把CDF微分來取得PDF，但是我們現在不知道V的CDF=?
+            <br/><br/>
+            但是我們還記得，V的CDF = $P(V\le v)$，V又能改寫成 $\frac { 2Y }{ X } $，如此一來原本的 $V\le v$ 就能變數代換改寫成Y與X比大小，Y與X比大小求機率，這在第7題有提過
+            <br/><br/>
+            整個流程大概如下
+            <br/><br/>
+            f(<i>v</i>)
+            <br/>
+            &nbsp;&nbsp;$\uparrow $
+            <br/>
+            &nbsp;&nbsp;$\frac { d }{ dv } F(v)$
+            <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$\uparrow $
+            <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P(V\le v)=P(\frac { 2Y }{ X } \le v)=P(Y\le \frac { v }{ 2 } X)$
+            <br/><br/>
+            於是我們要先來算 $P(Y\le \frac { v }{ 2 } X)$，算機率就靠CDF，既然有兩個random variable <i>X</i>, <i>Y</i>，所以我們要對joint PDF重積分，積分的範圍不得不謹慎
+
+            <br/><br/>
+            藉由$P(Y\le \frac { v }{ 2 } X)$，我們可知$y\le \frac { v }{ 2 } x$ 且根據題意 $y\ge 0$，所以y的範圍可以縮小到 $0\le y\le \frac { v }{ 2 } x$。根據題意，$x\ge 0$，所以x的範圍可以很直觀的理解為 $0\le x\le \infty $
+            <br/><br/>
+            說了那麼多，你應該有能力動筆試試看了
+
+            <br/><br/>
+            <button id="showAns_8" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_8" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_8" style="display: none">
+                $P(Y\le \frac { v }{ 2 } X)=\int _{ 0 }^{ \infty  }{ \left( \int _{ 0 }^{ \frac { vX }{ 2 }  }{ { e }^{ -(2x+3y) } } dy \right) dx } =\int _{ 0 }^{ \infty  }{ \left( \int _{ 0 }^{ \frac { vX }{ 2 }  }{ { e }^{ -2x }{ e }^{ -3y } } dy \right) dx } $
+                <br/><br/>
+                對y積分，所以 ${ e }^{ -2x }$是constant，可以移到外面去
+                <br/><br/>
+                $=\int _{ 0 }^{ \infty  }{ \left( { e }^{ -2x }\int _{ 0 }^{ \frac { vX }{ 2 }  }{ { e }^{ -3y } } dy \right) dx } =\int _{ 0 }^{ \infty  }{ { { e }^{ -2x }\left( \frac { -1 }{ 3 } { e }^{ -3y } \right)  }_{ 0 }^{ \frac { vX }{ 2 }  }dx } =\int _{ 0 }^{ \infty  }{ { e }^{ -2x }\left( \frac { 1 }{ 3 }  \right) \left( -{ e }^{ -3\frac { vX }{ 2 }  }+1 \right) dx } $
+                <br/><br/>
+                $=\frac { 1 }{ 3 } \int _{ 0 }^{ \infty  }{ \left( { e }^{ -3\frac { vX }{ 2 } -2x }+{ e }^{ -2x } \right) dx= } \frac { 1 }{ 3 } \cdot \left( \frac { -1 }{ \frac { 3v }{ 2 } +1 }  \right) \cdot { \left( { e }^{ -(\frac { 3v }{ 2 } +2)x } \right)  }_{ 0 }^{ \infty  }+\frac { 1 }{ 3 } \cdot { \left( { \left( \frac { 1 }{ -2 }  \right) \cdot e }^{ -2x } \right)  }_{ 0 }^{ \infty  }$
+                <br/><br/>
+                $=\frac { 1 }{ 3 } \cdot \left( \frac { -1 }{ \frac { 3v+4 }{ 2 }  }  \right) \cdot \left( -1 \right) +\frac { 1 }{ 3 } \cdot \left( \frac { -1 }{ 2 }  \right) \cdot \left( -1 \right) =\frac { 1 }{ 3 } \cdot \frac { 2 }{ 3v+4 } +\frac { 1 }{ 6 } $
+                <br/><br/>
+                $=P(Y\le \frac { v }{ 2 } X)=P(V\le v)=F(v)$
+                <br/><br/>
+                $\therefore f(v)=\frac { d }{ dv } F(v)=\frac { d }{ dv } \left( \frac { 2 }{ 9v+12 } +\frac { 1 }{ 6 }  \right) $
+                <br/><br/>
+                $=\frac { d }{ dv } \left( \frac { 2 }{ 9v+12 }  \right) =\frac { 0\cdot (9v+6)-9\times 2 }{ { \left( 9v+12 \right)  }^{ 2 } } =\frac { -18 }{ { \left( 9v+12 \right)  }^{ 2 } } $
+                <br/><br/>
+                因為 $V=\frac { 2Y }{ X } $，且 $y\ge 0,\quad x\ge 0$，所以 $v\ge 0$
+                <br/><br/>
+                $\therefore { f }_{ V }(v)=\begin{cases} \frac { -18 }{ { \left( 9v+12 \right)  }^{ 2 } } ,\quad v\ge 0 \\ \quad   0\quad \quad,\quad v＜0 \end{cases}$
+                <br/><br/>
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<!--第九題-->
+<div id='question9' style='width:90%;height:70%; display: none;'>
+    <div id='accordion9' >
+        <h3 class="title" >CH4 Question.9 </h3>
+        <article class="module">
+            For the following joint PMF, prove that <i>X</i> and <i>Y</i> are not independent.
+            <br/>
+            <table  border="1">
+                　          <tr align="center;">
+                　            <td >${ P }_{ XY }(x,y)$</td>
+                　            <td>y=-2</td>
+                <td>y=0</td>
+                <td>y=2</td>
+                　          </tr>
+                <tr align="center;">
+                　            <td>x=0</td>
+                　            <td>1/8</td>
+                <td>1/4</td>
+                <td>1/8</td>
+                　          </tr>
+                <tr align="center;">
+                　            <td>x=1</td>
+                　            <td>1/4</td>
+                <td>1/8</td>
+                <td>1/8</td>
+                　          </tr>
+            </table>
+
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            題目要我們證明<i>X</i>、<i>Y</i>是獨立的
+            <br/><br/>
+            若兩個random variable是獨立的 $\Rightarrow { P }_{ XY }(x,y)={ P }_{ X }(x){ P }_{ Y }(y)$
+            <br/><br/>
+            若要使用上面這條公式我們需要 ${ P }_{ X }(x)$ 與 ${ P }_{ Y }(y)$
+            <br/><br/>
+            當我們已知joint PMF時，我們可以求得marginal PMF：${ P }_{ X }(x)$ 與 ${ P }_{ Y }(y)$
+            <br/>
+            <ol>
+                <li> ${ P }_{ X }(x)=\sum _{ y=-\infty  }^{ \infty  }{ { P }_{ XY }(x,y) } $  </li>
+                <li> ${ P }_{ Y }(y)=\sum _{ x=-\infty  }^{ \infty  }{ { P }_{ XY }(x,y) } $ </li>
+            </ol>
+
+            現在題目已經給我們表了，那我們就隨便代一個joint PMF 像是 ${ P }_{ XY }(0,0)$，接著用marginal PMF與是否independent的公式驗證即可。
+            <br/><br/>
+            提示到這邊你應該有能力自己嘗試看看了 ^_^
+            <br/><br/>
+
+            <br/><br/>
+            <button id="showAns_9" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_9" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_9" style="display: none">
+                <img src="./images/pic5.png">
+                <br/><br/>
+                ${ P }_{ X }(0)=\frac { 1 }{ 8 } +\frac { 1 }{ 4 } +\frac { 1 }{ 8 } =\frac { 1 }{ 2 } $
+                <br/><br/>
+                $ { P }_{ Y }(0)=\frac { 1 }{ 4 } +\frac { 1 }{ 8 } =\frac { 3 }{ 8 }$
+                <br/><br/>
+                by 表格 ${ P }_{ XY }(0,0)=\frac { 1 }{ 4 } $，by independent的定義 ${ P }_{ XY }(0,0)={ { P }_{ X }(0)\cdot P }_{ Y }(0)=\frac { 3 }{ 8 } \times \frac { 1 }{ 2 } \neq \frac { 1 }{ 4 } $
+                <br/><br/>
+                所以 not independent，得證。
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<!--第十題-->
+<div id='question10' style='width:90%;height:70%; display: none;'>
+    <div id='accordion10' >
+        <h3 class="title" >CH4 Question.10 </h3>
+        <article class="module">
+            Consider the following joint PDF:
+            $${ f }_{ XY }(x,y)=\begin{cases} 8{ e }^{ -2x }{ e }^{ -4y },\quad 0＜x＜\infty ,0＜y＜\infty  \\ 0,\quad otherwise \end{cases}$$
+
+            Show that <i>X</i> and <i>Y</i> are independent
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試</h3>
+        <section class="module">
+            跟前一題一樣，兩個random variables是否獨立，不同的是這一次是兩個continuous random variables
+            <br/><br/>
+            若兩個continuous random variables獨立 $\Rightarrow { { f } }_{ XY }(x,y)={ f }_{ X }(x)\cdot { f }_{ Y }(y)$
+            <br/><br/>
+            若已知joint PDF則可求marginal PDF：${ f }_{ X }(x)$、${ f }_{ Y }(y)$
+            <br/>
+            <ol>
+                <li> ${ f }_{ X }(x)=\int _{ -\infty  }^{ \infty  }{ { { f } }_{ XY }(x,y)dy } $，要求x就對y積分  </li>
+                <li> ${ f }_{ Y }(y)=\int _{ -\infty  }^{ \infty  }{ { { f } }_{ XY }(x,y)dx } $，要求y就對x積分 </li>
+            </ol>
+
+            提示到這邊你應該已經知道要怎麼寫了
+
+            <br/><br/>
+            <button id="showAns_10" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_10" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_10" style="display: none">
+                ${ { f } }_{ XY }(x,y)={ f }_{ X }(x)\cdot { f }_{ Y }(y)$
+                <br/><br/>
+                ${ f }_{ X }(x)=\int _{ -\infty  }^{ \infty  }{ { { f } }_{ XY }(x,y)dy } =\int _{ 0 }^{ \infty  }{ 8{ e }^{ -2x } } { e }^{ -4y }dy=8{ e }^{ -2x }\cdot { { \left( \frac { -1 }{ 4 } \cdot { e }^{ -4y } \right)  }_{ 0 }^{ \infty  }= }2{ e }^{ -2x }$
+                <br/><br/>
+                ${ f }_{ Y }(y)=\int _{ -\infty  }^{ \infty  }{ { { f } }_{ XY }(x,y)dx } =\int _{ 0 }^{ \infty  }{ 8{ e }^{ -2x } } { e }^{ -4y }dx=8{ e }^{ -4y }\cdot { { \left( \frac { -1 }{ 2 } \cdot { e }^{ -2x } \right)  }_{ 0 }^{ \infty  }= }4{ e }^{ -2y }$
+                <br/><br/>
+                兩兩相乘，與題目所給一樣，所以independent得證
+
+
+                <br/><br/>
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<!--第十一題-->
+<div id='question11' style='width:90%;height:70%; display: none;'>
+    <div id='accordion11' >
+        <h3 class="title" >CH4 Question.11 </h3>
+        <article class="module">
+            Let <i>W</i> = <i>X</i> + <i>Y</i> and
+            $${ f }_{ XY }(x,y)=\begin{cases} 8{ e }^{ -2x }{ e }^{ -4y },\quad 0＜x＜\infty ,0＜y＜\infty  \\ 0,\quad otherwise \end{cases}$$
+
+            (a) Find E[<i>W</i>]
+            <br/><br/>
+            (b) Let <i>V=XY</i>. Find E[<i>V</i>]
+        </article>
+
+        <h3 class="title">思考，然後自己動手嘗試 </h3>
+        <section class="module">
+            請見課本p201頁，$E\left[ X+Y \right] =E\left[ X \right] +E\left[ Y \right] $
+            <br/><br/>
+            接著我們在代以前學過的期望值的公式 $E\left[ X \right] =\int _{ -\infty  }^{ \infty  }{ x{ \cdot { f } }_{ X }(x)dx } $ 這樣就可以求解了
+            <br/><br/>
+            計算過程中需要查課本p129的表，現在你可以自己試試看
+
+            <br/><br/>
+            <button id="showAns_11ab" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_11ab" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_11ab" style="display: none">
+                $E\left[ X \right] =\int _{ -\infty  }^{ \infty  }{ x{ \cdot { f } }_{ X }(x)dx } =\int _{ 0 }^{ \infty  }{ x\cdot \left( 2{ e }^{ -2x } \right) dx } =\frac { 1 }{ 2 } $
+                <br/><br/>
+                $E\left[ Y \right] =\int _{ 0 }^{ \infty  }{ y\cdot \left( 4{ e }^{ -4y } \right) dy } =\frac { 1 }{ 4 } $
+                <br/><br/>
+                (a) $E\left[ W \right] =E\left[ X \right] +E\left[ Y \right] =\frac { 1 }{ 2 } +\frac { 1 }{ 4 } $
+                <br/><br/>
+                (b) $\because $ X, Y are independent Random variables,
+                <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;
+                $\therefore E\left[ XY \right] =E\left[ X \right] \cdot E\left[ Y \right] $  ，$E\left[ V \right] =E\left[ XY \right] =E\left[ X \right] \cdot E\left[ Y \right] =\frac { 1 }{ 2 } \times \frac { 1 }{ 4 } $
+
+
+                <br/><br/>
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<!--第十二題-->
+<div id='question12' style='width:90%;height:70%; display: none;'>
+    <div id='accordion12' >
+        <h3 class="title" >CH4 Question.12 </h3>
+        <article class="module">
+            Suppose <i>X</i> and <i>Y</i> are independent random variables with PDF's
+            $${ f }_{ X }(x)=\begin{cases} a{ e }^{ -ax },\quad x\ge 0 \\ 0,\quad otherwise \end{cases}$$
+
+            $${ f }_{ Y }(y)=\begin{cases} b{ e }^{ -by },\quad y\ge 0 \\ 0,\quad otherwise \end{cases}$$
+
+            Let <i>b</i> ＞ <i>a</i> ＞ 0
+            <br/><br/>
+            (a) Find P[<i>X</i>＞<i>Y</i>]
+            <br/><br/>
+            (b) Find E[<i>XY</i>]
+        </article>
+
+        <h3 class="title">(a) 到這一題已經沒有任何新東西了，除了計算很繁複之外，祝你幸福</h3>
+        <section class="module">
+            <br/><br/>
+            <button id="showAns_12a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_12a" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_12a" style="display: none">
+                y的範圍：$0\le y\le x$
+                <br/><br/>
+                x的範圍：$0\le x\le \infty $
+                <br/><br/>
+                $P(X＞Y)=\int _{ 0 }^{ \infty  }{ \int _{ 0 }^{ x }{ { f }_{ XY }(x,y) } dy } dx=\int _{ 0 }^{ \infty  }{ \int _{ 0 }^{ x }{ { f }_{ X }(x)\cdot { f }_{ Y }(y) } dy } dx=\int _{ 0 }^{ \infty  }{ \int _{ 0 }^{ x }{ ab{ e }^{ -ax }{ e }^{ -by } } dy } dx$
+                <br/><br/>
+                $=\int _{ 0 }^{ \infty  }{ ab{ e }^{ -ax } } \left( \int _{ 0 }^{ x }{ { e }^{ -by } } dy \right) dx=\int _{ 0 }^{ \infty  }{ ab{ e }^{ -ax } } \left( \frac { -1 }{ b }  \right) \left( { e }^{ -bx }-1 \right) dx=-a\int _{ 0 }^{ \infty  }{ \left( { e }^{ -(a+b)x }-{ e }^{ -ax } \right)  } dx$
+                <br/><br/>
+                $=\left( -a \right) \cdot \left( \frac { -1 }{ a+b }  \right) \cdot \left( -1 \right) +\left( -a \right) \cdot \left( \frac { 1 }{ a }  \right) \cdot \left( -1 \right) =\frac { b }{ a+b } $
+
+
+
+                <br/><br/>
+
+            </div>
+        </section>
+
+        <h3 class="title">(b) 到這一題已經沒有任何新東西了，除了計算很繁複之外，祝你幸福 </h3>
+        <section class="module">
+            <br/>
+            <button id="showAns_12b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Show it</button>
+            <button id="hideAns_12b" style='background:rgba(0,0,0,0.5);color:#BDBDBD;'>Hide it</button>
+            <br/><br/>
+            <div  id="effect_12b" style="display: none">
+                $\because $ <i>X, Y</i> are independent Random variables
+                <br/><br/>
+                $\therefore E[XY]=E[X]\cdot E[Y]$
+                <br/><br/>
+                $=\left( a\int _{ 0 }^{ \infty  }{ x{ e }^{ -ax } } dx \right) \cdot \left( b\int _{ 0 }^{ \infty  }{ y{ e }^{ -by } } dy \right) $，藉由課本p129查表
+                <br/><br/>
+                $=\left( \frac { 1 }{ { a } }  \right) \cdot \left( \frac { 1 }{ { b } }  \right) $
+
+
+
+                <br/><br/>
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="http://codepen.io/NickWarm/pen/ZYppPw.css" />
+
+<script src='/socket.io/socket.io.js'></script>
+
+<script data-main="main" src="./vendor/require.js/require.js"></script>
+
+</body>
+</html>
