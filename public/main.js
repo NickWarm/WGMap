@@ -38,7 +38,7 @@ require.config({
 });
 
 require(['mathjax'
-    //, 'three_world7th'
+    , 'three_world7th'
     ,'rect_Dialog7th','colliders','colliderHelper'
     , 'bower_components/threex.minecraft/package.require.js'
     , 'bower_components/threex.montainsarena/package.require.js'
